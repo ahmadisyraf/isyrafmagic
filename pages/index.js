@@ -108,7 +108,7 @@ export default function Home() {
           <Image
             borderRadius="full"
             boxSize={isMobile ? "250px" : "300px"}
-            src="/IsyrafMinum.PNG"
+            src="/IsyrafMinum.png"
             alt="isyrafmagic"
           />
         </Box>
