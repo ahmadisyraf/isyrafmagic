@@ -75,6 +75,7 @@ export default function Home() {
               boxSize={isMobile ? "150px" : "180px"}
               src="/profile.JPG"
               alt="isyrafmagic"
+              border={"5px solid white"}
             />
           </Box>
           <Heading as="h2" size={isMobile ? "xl" : "2xl"} lineHeight={1.1} textAlign="center">
