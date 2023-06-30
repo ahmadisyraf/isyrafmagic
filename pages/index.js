@@ -118,7 +118,7 @@ export default function Home() {
             Work Experience
           </Heading>
           <Text fontSize="xl" textAlign={isMobile ? "center" : ""} mt={5}>
-            I&apos;m currently working part-time as a software engineer 👨‍💻 at <Link color="teal.500" href="www.crib.my">crib.my</Link>. It&apos;s been an incredible journey so far! After completing my diploma internship as a web app developer, I was thrilled 😇 to receive a proposal to continue working part-time with the company. I&apos;m truly passionate about what I do, especially in the realm of web app development. Every day, I get to expand my skills, contribute to exciting projects, and make a real impact 📈 at <Link color="teal.500" href="www.crib.my">crib.my</Link>.
+            I&apos;m currently working part-time as a software engineer 👨‍💻 at <Link color="teal.500" href="https://crib.my/">crib.my</Link>. It&apos;s been an incredible journey so far! After completing my diploma internship as a web app developer, I was thrilled 😇 to receive a proposal to continue working part-time with the company. I&apos;m truly passionate about what I do, especially in the realm of web app development. Every day, I get to expand my skills, contribute to exciting projects, and make a real impact 📈 at <Link color="teal.500" href="https://crib.my/">crib.my</Link>.
           </Text>
         </Box>
       </Stack>
