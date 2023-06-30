@@ -19,8 +19,7 @@ import {
 } from "@chakra-ui/react";
 import { StepIcon, StepNumber } from "@chakra-ui/react";
 import { EmailIcon } from "@chakra-ui/icons";
-import { motion } from "framer-motion";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/router";
 
 const steps = [
   { title: "High School (2011)", description: "SMK Tg Panglima Perang Tg Muhammad" },
@@ -60,6 +59,11 @@ function Example() {
 
 export default function Home() {
   const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const router = useRouter();
+
+  const handleEmail = () => {
+    router.push("mailto:isyrafmagic@gmail.com");
+  }
 
   return (
     <Box mx={isMobile ? 5 : 10}>
@@ -85,6 +89,7 @@ export default function Home() {
               bg="white"
               textAlign="center"
               leftIcon={<EmailIcon />}
+              onClick={handleEmail}
             >
               Contact Me
             </Button>
@@ -97,7 +102,7 @@ export default function Home() {
             Education Background
           </Heading>
           <Text fontSize="xl" textAlign={isMobile ? "center" : ""} mt={5}>
-            Education 📚 has been a transformative journey for me, shaping my character and opening doors 🚪 to new opportunities. From the early days of curiosity to the present, I continue to embrace learning as a lifelong student 👨‍🎓
+            EduBcation 📚 has been a transformative journey for me, shaping my character and opening doors 🚪 to new opportunities. From the early days of curiosity to the present, I continue to embrace learning as a lifelong student 👨‍🎓
           </Text>
         </Box>
         <Spacer />
