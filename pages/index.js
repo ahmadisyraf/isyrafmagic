@@ -16,10 +16,13 @@ import {
   useSteps,
   Spacer,
   Link,
+  Card,
+  Container
 } from "@chakra-ui/react";
 import { StepIcon, StepNumber } from "@chakra-ui/react";
 import { EmailIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
+import { TwitterEmbed, InstagramEmbed, TikTokEmbed } from 'react-social-media-embed';
 
 const steps = [
   { title: "High School (2011)", description: "SMK Tg Panglima Perang Tg Muhammad" },
@@ -79,7 +82,7 @@ export default function Home() {
             />
           </Box>
           <Heading as="h2" size={isMobile ? "xl" : "2xl"} lineHeight={1.1} textAlign="center">
-            👋 Hello! My name is Ahmad Isyraf. I&apos;m Software Engineer 💻
+            👋 Hello! My name is Ahmad Isyraf. I&apos;m a Software Engineer 💻
           </Heading>
           <Text fontSize="xl" textAlign="center" mt={5}>
             I am a software engineer based in Kuantan, Pahang, Malaysia. My primary focus is web app development, and I have a strong passion for exploring and learning new technologies. When it comes to building applications, my go-to tools are React, Next.js, and Laravel. I strive to stay updated with the latest tech trends, enabling me to tackle new challenges and deliver innovative solutions in the ever-evolving field of software engineering.
@@ -128,6 +131,22 @@ export default function Home() {
           </Text>
         </Box>
       </Stack>
+      <Box w={"100%"} my={20}>
+        <Heading textAlign={"center"} mb={10}>
+          Follow me on Twitter
+        </Heading>
+        <Stack direction={isMobile ? "column" : "row"} gap={10} display={"flex"} flexDirection={isMobile ? "column" : "row"} justifyContent={"center"}>
+          <Box width={isMobile ? "100%" : "400px"} height={isMobile ? "auto" : "400px"}>
+            <TwitterEmbed url="https://twitter.com/heyizzycraft/status/1674305347614564353" />
+          </Box>
+          <Box width={isMobile ? "100%" : "400px"} height={isMobile ? "auto" : "400px"}>
+            <TwitterEmbed url="https://twitter.com/heyizzycraft/status/1662441504819003400?s=20" />
+          </Box>
+          <Box width={isMobile ? "100%" : "400px"} height={isMobile ? "auto" : "400px"}>
+            <TwitterEmbed url="https://twitter.com/heyizzycraft/status/1663867519722196992?s=20" />
+          </Box>
+        </Stack>
+      </Box>
     </Box>
   );
 }
