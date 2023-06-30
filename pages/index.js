@@ -85,7 +85,7 @@ export default function Home() {
             👋 Hello! My name is Ahmad Isyraf. I&apos;m a Software Engineer 💻
           </Heading>
           <Text fontSize="xl" textAlign="center" mt={5}>
-            I am a software engineer based in Kuantan, Pahang, Malaysia. My primary focus is web app development, and I have a strong passion for exploring and learning new technologies. When it comes to building applications, my go-to tools are React, Next.js, and Laravel. I strive to stay updated with the latest tech trends, enabling me to tackle new challenges and deliver innovative solutions in the ever-evolving field of software engineering.
+            I am a software engineer based in <b>Malaysia</b>. My primary focus is web app development, and I have a strong passion for exploring and learning new technologies. When it comes to building applications, my go-to tools are <b>React, Next.js, and Laravel</b>. I strive to stay updated with the latest tech trends, enabling me to tackle new challenges and deliver innovative solutions in the ever-evolving field of software engineering.
           </Text>
           <Box w="100%" display="flex" justifyContent="center" alignItems="center" mb={5} mt={5}>
             <Button
@@ -137,13 +137,13 @@ export default function Home() {
         </Heading>
         <Stack direction={isMobile ? "column" : "row"} gap={10} display={"flex"} flexDirection={isMobile ? "column" : "row"} justifyContent={"center"}>
           <Box width={isMobile ? "100%" : "400px"} height={isMobile ? "auto" : "400px"}>
-            <TwitterEmbed url="https://twitter.com/heyizzycraft/status/1674305347614564353" />
+            <TwitterEmbed url="https://twitter.com/isyrafmagic/status/1674305347614564353" />
           </Box>
           <Box width={isMobile ? "100%" : "400px"} height={isMobile ? "auto" : "400px"}>
-            <TwitterEmbed url="https://twitter.com/heyizzycraft/status/1662441504819003400?s=20" />
+            <TwitterEmbed url="https://twitter.com/isyrafmagic/status/1662441504819003400?s=20" />
           </Box>
           <Box width={isMobile ? "100%" : "400px"} height={isMobile ? "auto" : "400px"}>
-            <TwitterEmbed url="https://twitter.com/heyizzycraft/status/1663867519722196992?s=20" />
+            <TwitterEmbed url="https://twitter.com/isyrafmagic/status/1663867519722196992?s=20" />
           </Box>
         </Stack>
       </Box>

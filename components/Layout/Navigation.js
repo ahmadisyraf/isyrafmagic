@@ -1,5 +1,5 @@
 import {
-    Box, Button, Text, Stack, Spacer, useMediaQuery, Menu, MenuItem, MenuButton, IconButton, MenuList
+    Box, Button, Text, Stack, Spacer, useMediaQuery, Menu, MenuItem, MenuButton, IconButton, MenuList, Link
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
@@ -22,9 +22,11 @@ const Navigation = () => {
                     justifyContent={"center"}
                     alignItems={"center"}
                 >
-                    <Text fontSize={"lg"} as={"b"}>
-                        👨‍💻 isyrafmagic
-                    </Text>
+                    <Link href="/">
+                        <Text fontSize={"lg"} as={"b"}>
+                            👨‍💻 isyrafmagic
+                        </Text>
+                    </Link>
                 </Box>
                 <Spacer />
                 {isMobile ?
@@ -36,22 +38,30 @@ const Navigation = () => {
                             variant='outline'
                         />
                         <MenuList>
-                            <MenuItem>
-                                Works
-                            </MenuItem>
-                            <MenuItem>
-                                Posts
-                            </MenuItem>
+                            <Link href="/works">
+                                <MenuItem>
+                                    Works
+                                </MenuItem>
+                            </Link>
+                            <Link href="/gallery">
+                                <MenuItem>
+                                    Gallery
+                                </MenuItem>
+                            </Link>
                         </MenuList>
                     </Menu>
                     :
                     <Stack direction={"row"} spacing={1} align={"center"}>
-                        <Button colorScheme="teal" variant={"ghost"}>
-                            Works
-                        </Button>
-                        <Button colorScheme="teal" variant={"ghost"}>
-                            Posts
-                        </Button>
+                        <Link href="/works">
+                            <Button colorScheme="teal" variant={"ghost"}>
+                                Works
+                            </Button>
+                        </Link>
+                        <Link href="/gallery">
+                            <Button colorScheme="teal" variant={"ghost"}>
+                                Gallery
+                            </Button>
+                        </Link>
                     </Stack>
                 }
             </Box>
