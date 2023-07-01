@@ -1,6 +1,7 @@
 import {
-    Box, Button, Text, Stack, Spacer, useMediaQuery, Menu, MenuItem, MenuButton, IconButton, MenuList, Link
+    Box, Button, Text, Stack, Spacer, useMediaQuery, Menu, MenuItem, MenuButton, IconButton, MenuList
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 const Navigation = () => {

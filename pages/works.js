@@ -1,4 +1,5 @@
-import { Box, Grid, GridItem, Image, useMediaQuery, Heading, Text, Link } from "@chakra-ui/react"
+import { Box, Grid, GridItem, Image, useMediaQuery, Heading, Text } from "@chakra-ui/react"
+import Link from "next/link";
 
 const imageurl = [
     {
