@@ -23,6 +23,7 @@ import { StepIcon, StepNumber } from "@chakra-ui/react";
 import { EmailIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import { TwitterEmbed, InstagramEmbed, TikTokEmbed } from 'react-social-media-embed';
+import ConfettiExplosion from 'react-confetti-explosion';
 
 const steps = [
   { title: "High School (2011)", description: "SMK Tg Panglima Perang Tg Muhammad" },
@@ -61,7 +62,11 @@ function Example() {
 }
 
 export default function Home() {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
+  const [isMobile] = useMediaQuery("(max-width: 768px)", {
+    ssr: true,
+    fallback: true, // return false on the server, and re-evaluate on the client side
+  });
+
   const router = useRouter();
 
   const handleEmail = () => {
@@ -72,7 +77,9 @@ export default function Home() {
     <Box mx={isMobile ? 5 : 10}>
       <Box bg="#DCD6F7" borderRadius={15}>
         <Box px={isMobile ? 10 : 200} py={20}>
+
           <Box w="100%" display="flex" justifyContent="center" alignItems="center" mb={5}>
+            <Box position={"absolute"}><ConfettiExplosion /></Box>
             <Image
               borderRadius="full"
               boxSize={isMobile ? "150px" : "180px"}
