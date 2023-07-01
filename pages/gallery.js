@@ -3,7 +3,7 @@ import { Box, Grid, GridItem, Image, useMediaQuery, Heading } from "@chakra-ui/r
 const imageurl = [
     { url: "/isyraf-di-pantai.jpg" },
     { url: "/isyraf-di-tc.jpg" },
-    { url: "/kuantan.jpg" },
+    { url: "/view-kuantan.jpg" },
 ]
 export default function Gallery() {
     const [isMobile] = useMediaQuery("(max-width: 768px)");
