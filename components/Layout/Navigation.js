@@ -5,7 +5,10 @@ import Link from "next/link";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 const Navigation = () => {
-    const [isMobile] = useMediaQuery("(max-width: 768px)");
+    const [isMobile] = useMediaQuery("(max-width: 768px)", {
+        ssr: true,
+        fallback: true, // return false on the server, and re-evaluate on the client side
+    });
 
     return (
         <Box
