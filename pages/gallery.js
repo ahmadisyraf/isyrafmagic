@@ -24,7 +24,6 @@ export default function Gallery() {
                 {imageurl && imageurl.map((d, i) => (
                     <GridItem key={i}>
                         <Image src={d.url} borderRadius={10} fallback={<Skeleton height={240} width={"100%"} borderRadius={10} />
- />
                         } />
                     </GridItem>
                 ))}
