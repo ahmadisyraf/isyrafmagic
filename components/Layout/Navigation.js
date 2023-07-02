@@ -1,6 +1,4 @@
-import {
-    Box, Button, Text, Stack, Spacer, useMediaQuery, Menu, MenuItem, MenuButton, IconButton, MenuList
-} from "@chakra-ui/react";
+import { Box, Button, Text, Stack, Spacer, useMediaQuery, Menu, MenuItem, MenuButton, IconButton, MenuList } from "@chakra-ui/react";
 import Link from "next/link";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
@@ -14,7 +12,6 @@ const Navigation = () => {
         <Box
             width={"100%"}
             position={"fixed"}
-            // top={0}
             bg={"rgba(255, 255, 255, 0.3)"}
             backdropFilter="blur(8px)"
             zIndex={1000}
