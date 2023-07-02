@@ -23,7 +23,8 @@ export default function Gallery() {
             <Grid templateColumns={isMobile ? 'repeat(1, 1fr)' : 'repeat(3, 1fr)'} gap={6}>
                 {imageurl && imageurl.map((d, i) => (
                     <GridItem key={i}>
-                        <Image src={d.url} borderRadius={10} fallback={<Skeleton height={220} width={"100%"} borderRadius={10} />
+                        <Image src={d.url} borderRadius={10} fallback={<Skeleton height={240} width={"100%"} borderRadius={10} />
+ />
                         } />
                     </GridItem>
                 ))}
