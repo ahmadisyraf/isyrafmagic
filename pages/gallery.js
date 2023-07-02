@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Image, useMediaQuery, Heading } from "@chakra-ui/react"
+import { Box, Grid, GridItem, Image, useMediaQuery, Heading, Skeleton } from "@chakra-ui/react"
 
 const imageurl = [
     { url: "/isyraf-di-pantai.jpg" },
@@ -21,7 +21,9 @@ export default function Gallery() {
             <Grid templateColumns={isMobile ? 'repeat(1, 1fr)' : 'repeat(3, 1fr)'} gap={6}>
                 {imageurl.map((d, i) => (
                     <GridItem key={i}>
-                        <Image src={d.url} borderRadius={10} />
+                        <Skeleton borderRadius={10} isLoaded>
+                            <Image src={d.url} borderRadius={10} />
+                        </Skeleton>
                     </GridItem>
                 ))}
             </Grid>
