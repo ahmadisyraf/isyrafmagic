@@ -92,7 +92,7 @@ export default function Home() {
             👋 Hello! My name is Ahmad Isyraf. I&apos;m a Software Engineer 💻
           </Heading>
           <Text fontSize="xl" textAlign="center" mt={5}>
-            I am a software engineer based in <b>Malaysia</b>. My primary focus is web app development, and I have a strong passion for exploring and learning new technologies. When it comes to building applications, my go-to tools are <b>React, Next.js, and Laravel</b>. I strive to stay updated with the latest tech trends, enabling me to tackle new challenges and deliver innovative solutions in the ever-evolving field of software engineering.
+            I&apos;m a software engineer based in <b>Malaysia</b>. My primary focus is web app development, and I have a strong passion for exploring and learning new technologies. When it comes to building applications, my go-to tools are <b>React, Next.js, and Laravel</b>. I strive to stay updated with the latest tech trends, enabling me to tackle new challenges and deliver innovative solutions in the ever-evolving field of software engineering.
           </Text>
           <Box w="100%" display="flex" justifyContent="center" alignItems="center" mb={5} mt={5}>
             <Button
