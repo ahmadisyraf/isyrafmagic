@@ -1,4 +1,5 @@
 import { Box, Grid, GridItem, Image, useMediaQuery, Heading, Skeleton } from "@chakra-ui/react"
+import { useState } from "react";
 
 const imageurl = [
     { url: "/isyraf-di-pantai.jpg" },
@@ -10,6 +11,7 @@ export default function Gallery() {
         ssr: true,
         fallback: true, // return false on the server, and re-evaluate on the client side
     });
+    const [isLoading, setIsLoading] = useState(false);
 
     return (
         <Box mx={isMobile ? 5 : 10}>
@@ -19,11 +21,10 @@ export default function Gallery() {
                 </Heading>
             </Box>
             <Grid templateColumns={isMobile ? 'repeat(1, 1fr)' : 'repeat(3, 1fr)'} gap={6}>
-                {imageurl.map((d, i) => (
+                {imageurl && imageurl.map((d, i) => (
                     <GridItem key={i}>
-                        <Skeleton borderRadius={10} isLoaded>
-                            <Image src={d.url} borderRadius={10} />
-                        </Skeleton>
+                        <Image src={d.url} borderRadius={10} fallback={<Skeleton height={220} width={"100%"} borderRadius={10} />
+                        } />
                     </GridItem>
                 ))}
             </Grid>
