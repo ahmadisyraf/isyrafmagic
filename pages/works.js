@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Image, useMediaQuery, Heading, Text } from "@chakra-ui/react"
+import { Box, Grid, GridItem, Image, useMediaQuery, Heading, Text, Skeleton } from "@chakra-ui/react"
 import Link from "next/link";
 
 const imageurl = [
@@ -14,7 +14,7 @@ export default function Works() {
     const [isMobile] = useMediaQuery("(max-width: 768px)", {
         ssr: true,
         fallback: true, // return false on the server, and re-evaluate on the client side
-      });
+    });
 
     return (
         <Box mx={isMobile ? 5 : 10}>
@@ -27,7 +27,8 @@ export default function Works() {
                 {imageurl.map((d, i) => (
                     <GridItem key={i}>
                         <Link href={d.Link}>
-                            <Image src={d.url} borderRadius={10} />
+                            <Image src={d.url} borderRadius={10} fallback={<Skeleton height={240} width={"100%"} borderRadius={10} />
+                            } />
                             <Box mt={5}>
                                 <Text textAlign={"center"} color={"blue.400"}>
                                     <b>{d.Category}</b>

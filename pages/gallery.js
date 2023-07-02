@@ -1,5 +1,4 @@
 import { Box, Grid, GridItem, Image, useMediaQuery, Heading, Skeleton } from "@chakra-ui/react"
-import { useState } from "react";
 
 const imageurl = [
     { url: "/isyraf-di-pantai.jpg" },
@@ -11,7 +10,6 @@ export default function Gallery() {
         ssr: true,
         fallback: true, // return false on the server, and re-evaluate on the client side
     });
-    const [isLoading, setIsLoading] = useState(false);
 
     return (
         <Box mx={isMobile ? 5 : 10}>
