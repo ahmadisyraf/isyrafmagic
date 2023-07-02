@@ -26,8 +26,8 @@ import { TwitterEmbed, InstagramEmbed, TikTokEmbed } from 'react-social-media-em
 import ConfettiExplosion from 'react-confetti-explosion';
 
 const steps = [
-  { title: "High School (2011)", description: "SMK Tg Panglima Perang Tg Muhammad" },
-  { title: "Diploma in Science Computer (2017)", description: "Universiti Malaysia Pahang" },
+  { title: "High School (2013)", description: "SMK Tg Panglima Perang Tg Muhammad" },
+  { title: "Diploma in Science Computer (2019)", description: "Universiti Malaysia Pahang" },
   { title: "Degree in Software Engineering (2022)", description: "Universiti Malaysia Pahang" },
 ];
 
