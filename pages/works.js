@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Image, useMediaQuery, Heading, Text, Skeleton } from "@chakra-ui/react"
+import { Box, Grid, GridItem, Image, useMediaQuery, Heading, Text, Skeleton, Badge, Stack } from "@chakra-ui/react"
 import Link from "next/link";
 
 const imageurl = [
@@ -7,7 +7,8 @@ const imageurl = [
         Category: "Featured project",
         Title: "Build new crib.my",
         Content: "Build new crib website with a focus on user management and front-end design. Collaborating with other teams, we completed the project within a year and updated all dependency libraries. Our goal was to create a modern, minimalist website with a clean interface and flawless performance on all devices.",
-        Link: "https://crib.my/"
+        Link: "https://crib.my/",
+        Tool: { Name: "Next.js", Framework: "Material-UI", Other: "Firebase", Other2: "Redux" }
     },
 ]
 export default function Works() {
@@ -39,6 +40,14 @@ export default function Works() {
                                 <Text fontSize={"md"} textAlign={"center"}>
                                     {d.Content}
                                 </Text>
+                            </Box>
+                            <Box display={"flex"} flexDirection={"row"} justifyContent={"center"} mt={3}>
+                                <Stack direction={"row"}>
+                                    <Badge colorScheme="blue">{d.Tool.Name}</Badge>
+                                    <Badge colorScheme="blue">{d.Tool.Framework}</Badge>
+                                    <Badge colorScheme="blue">{d.Tool.Other}</Badge>
+                                    <Badge colorScheme="blue">{d.Tool.Other2}</Badge>
+                                </Stack>
                             </Box>
                         </Link>
                     </GridItem>
