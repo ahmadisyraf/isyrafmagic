@@ -1,10 +1,5 @@
 import HomeScreen from "../screens/Home"
-import { Box } from "@chakra-ui/react"
 
-export default function Home() {
-  return (
-    <Box>
-        <HomeScreen />
-    </Box>
-  )
+export default function HomePages() {
+  return <HomeScreen />
 }

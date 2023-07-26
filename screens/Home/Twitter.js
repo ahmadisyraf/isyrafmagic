@@ -8,18 +8,20 @@ const TwitterScreen = ({ isMobile }) => {
                 Follow me on Twitter
             </Heading>
             <Stack direction={isMobile ? "column" : "row"} gap={10} display={"flex"} flexDirection={isMobile ? "column" : "row"} justifyContent={"center"}>
-                <Box width={isMobile ? "100%" : "400px"} height={isMobile ? "auto" : "400px"}>
-                    <TwitterEmbed url="https://twitter.com/isyrafmagic/status/1674305347614564353" />
-                </Box>
-                <Box width={isMobile ? "100%" : "400px"} height={isMobile ? "auto" : "400px"}>
-                    <TwitterEmbed url="https://twitter.com/isyrafmagic/status/1662441504819003400?s=20" />
-                </Box>
-                <Box width={isMobile ? "100%" : "400px"} height={isMobile ? "auto" : "400px"}>
-                    <TwitterEmbed url="https://twitter.com/isyrafmagic/status/1663867519722196992?s=20" />
-                </Box>
+                {links.map((link, index) => (
+                    <Box width={isMobile ? "100%" : "400px"} height={isMobile ? "auto" : "400px"} key={index}>
+                        <TwitterEmbed url={link.url} />
+                    </Box>
+                ))}
             </Stack>
         </Box>
     )
 }
+
+const links = [
+    { url: "https://twitter.com/isyrafmagic/status/1674305347614564353" },
+    { url: "https://twitter.com/isyrafmagic/status/1662441504819003400?s=20" },
+    { url: "https://twitter.com/isyrafmagic/status/1663867519722196992?s=20" }
+]
 
 export default TwitterScreen
