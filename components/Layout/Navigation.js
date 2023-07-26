@@ -39,35 +39,34 @@ const Navigation = () => {
                             variant='outline'
                         />
                         <MenuList>
-                            <Link href="/works">
-                                <MenuItem>
-                                    Works
-                                </MenuItem>
-                            </Link>
-                            <Link href="/gallery">
-                                <MenuItem>
-                                    Gallery
-                                </MenuItem>
-                            </Link>
+                            {navigations.map((navigation, index) => (
+                                <Link href={navigation.path} key={index}>
+                                    <MenuItem>
+                                        {navigation.name}
+                                    </MenuItem>
+                                </Link>
+                            ))}
                         </MenuList>
                     </Menu>
                     :
                     <Stack direction={"row"} spacing={1} align={"center"}>
-                        <Link href="/works">
-                            <Button colorScheme="teal" variant={"ghost"}>
-                                Works
-                            </Button>
-                        </Link>
-                        <Link href="/gallery">
-                            <Button colorScheme="teal" variant={"ghost"}>
-                                Gallery
-                            </Button>
-                        </Link>
+                        {navigations.map((navigation, index) => (
+                            <Link href={navigation.path} key={index}>
+                                <Button colorScheme="teal" variant={"ghost"}>
+                                    {navigation.name}
+                                </Button>
+                            </Link>
+                        ))}
                     </Stack>
                 }
             </Box>
         </Box>
     );
 };
+
+const navigations = [
+    { name: "Works", path: "/works" },
+    { name: "Gallery", path: "/gallery" }
+]
 
 export default Navigation;
