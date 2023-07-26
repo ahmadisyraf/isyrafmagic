@@ -12,7 +12,7 @@ const StackScreen = ({ isMobile }) => {
             <Box w={"100%"} mb={10} textAlign={"center"}>
                 <Heading>Stack</Heading>
                 <Text fontSize="xl" mt={5}>
-                    I used a powerful technology stack that serves as the foundation for all my projects. This combination of modern tools and frameworks enables me to create strong, scalable, and user-friendly software. With these tools at my disposal, I deliver efficient and reliable solutions for various projects, ensuring they meet high standards and provide a great user experience.
+                    I used a powerful technology stack that serves as the foundation for all my projects. This combination of modern tools 🛠️ and frameworks enables me to create strong 💪, scalable, and user-friendly software. With these tools at my disposal, I deliver efficient and reliable solutions for various projects💻, ensuring they meet high standards and provide a great user experience 😇.
                 </Text>
             </Box>
             <Grid templateColumns={isMobile ? 'repeat(1, 1fr)' : 'repeat(4, 1fr)'} gap={3}>
