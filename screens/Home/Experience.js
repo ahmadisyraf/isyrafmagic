@@ -2,7 +2,7 @@ import { Stack, Box, Image, Spacer, Heading, Text, Link } from "@chakra-ui/react
 
 const ExperienceScreen = ({ isMobile }) => {
     return (
-        <Stack direction={isMobile ? "column" : "row"} spacing={1} px={isMobile ? 5 : 20} mb={10}>
+        <Stack direction={isMobile ? "column" : "row"} spacing={1} px={isMobile ? 5 : 20}>
             <Box display={isMobile ? "flex" : ""} flexDirection={isMobile ? "column" : ""} alignItems={isMobile ? "center" : ""} mb={isMobile ? "5" : ""}>
                 <Image
                     borderRadius="full"

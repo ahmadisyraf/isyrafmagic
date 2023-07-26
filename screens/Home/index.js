@@ -14,7 +14,7 @@ const HomeScreen = () => {
 
     return (
         <Box mx={isMobile ? 5 : 10}>
-            <Stack direction={"column"} spacing={70}>
+            <Stack direction={"column"} spacing={100}>
                 <HeaderScreen isMobile={isMobile} />
                 <EducationScreen isMobile={isMobile} />
                 <ExperienceScreen isMobile={isMobile} />
