@@ -14,7 +14,7 @@ function Example() {
     });
 
     return (
-        <Stepper index={activeStep} orientation="vertical" height="200px" gap="0" mt={5}>
+        <Stepper index={activeStep} orientation="vertical" height="200px" gap="0">
             {steps.map((step, index) => (
                 <Step key={index}>
                     <StepIndicator>
@@ -39,7 +39,7 @@ function Example() {
 
 const EducationScreen = ({ isMobile }) => {
     return (
-        <Stack direction={isMobile ? "column" : "row"} spacing={1} px={isMobile ? 5 : 20} mt={20} mb={10}>
+        <Stack direction={isMobile ? "column" : "row"} spacing={1} px={isMobile ? 5 : 20}>
             <Box width={isMobile ? "" : "50%"}>
                 <Heading textAlign={isMobile ? "center" : ""}>
                     Education Background
