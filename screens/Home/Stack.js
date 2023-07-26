@@ -1,11 +1,19 @@
-import { Grid, Box, GridItem, Text, Heading, Image, Card, Stack, Icon, IconButton } from "@chakra-ui/react";
+import { Grid, Box, GridItem, Text, Heading, Image, Card, Stack, Icon, IconButton, Button, Container } from "@chakra-ui/react";
 import { SiReact, SiMui, SiTailwindcss, SiChakraui, SiFirebase, SiRedux, SiMongodb } from "react-icons/si"
 import { TbBrandNextjs, TbBrandMysql } from "react-icons/tb";
 import { ExternalLinkIcon } from "@chakra-ui/icons"
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 const StackScreen = ({ isMobile }) => {
     const router = useRouter();
+    const [showAll, setShowAll] = useState(true);
+
+    const displayStack = showAll ? stacks : stacks.slice(0, 3);
+
+    useEffect(() => {
+        isMobile == true ? setShowAll(false) : setShowAll(true);
+    }, [isMobile])
 
     return (
         <Box px={isMobile ? 5 : 20}>
@@ -15,35 +23,42 @@ const StackScreen = ({ isMobile }) => {
                     I used a powerful technology stack that serves as the foundation for all my projects. This combination of modern tools 🛠️ and frameworks enables me to create strong 💪, scalable, and user-friendly software. With these tools at my disposal, I deliver efficient and reliable solutions for various projects💻, ensuring they meet high standards and provide a great user experience 😇.
                 </Text>
             </Box>
-            <Grid templateColumns={isMobile ? 'repeat(1, 1fr)' : 'repeat(4, 1fr)'} gap={3}>
-                {stacks.map((stack, index) => {
-                    return (
-                        <GridItem key={index}>
-                            <Card variant={"outline"} px={5} h={180} display={"flex"} flexDirection={"row"} alignItems={"center"} boxShadow={"xs"}>
-                                <Stack direction={"row"} spacing={2}>
-                                    <Icon as={stack.icon.type} boxSize={10} color={stack.color} />
-                                    <Stack direction={"column"} spacing={1}>
-                                        <Stack direction={"row"} spacing={1} display={"flex"} flexDirection={"row"} alignItems={"center"}>
-                                            <Text fontWeight={"bold"}>
-                                                {stack.title}
+            <Box>
+                <Grid templateColumns={isMobile ? 'repeat(1, 1fr)' : 'repeat(4, 1fr)'} gap={3}>
+                    {displayStack.map((stack, index) => {
+                        return (
+                            <GridItem key={index}>
+                                <Card variant={"outline"} px={5} h={180} display={"flex"} flexDirection={"row"} alignItems={"center"} boxShadow={"xs"}>
+                                    <Stack direction={"row"} spacing={2}>
+                                        <Icon as={stack.icon.type} boxSize={10} color={stack.color} />
+                                        <Stack direction={"column"} spacing={1}>
+                                            <Stack direction={"row"} spacing={1} display={"flex"} flexDirection={"row"} alignItems={"center"}>
+                                                <Text fontWeight={"bold"}>
+                                                    {stack.title}
+                                                </Text>
+                                                <IconButton
+                                                    variant={"ghost"}
+                                                    icon={<ExternalLinkIcon />}
+                                                    borderRadius={"100%"}
+                                                    onClick={() => router.push(stack.url)}
+                                                />
+                                            </Stack>
+                                            <Text>
+                                                {stack.description}
                                             </Text>
-                                            <IconButton
-                                                variant={"ghost"}
-                                                icon={<ExternalLinkIcon />}
-                                                borderRadius={"100%"}
-                                                onClick={() => router.push(stack.url)}
-                                            />
                                         </Stack>
-                                        <Text>
-                                            {stack.description}
-                                        </Text>
                                     </Stack>
-                                </Stack>
-                            </Card>
-                        </GridItem>
-                    );
-                })}
-            </Grid>
+                                </Card>
+                            </GridItem>
+                        );
+                    })}
+                </Grid>
+            </Box>
+            <Box display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"} w={"100%"} mt={5}>
+                <Button variant="outline" display={isMobile ? "" : "none"} onClick={() => setShowAll(!showAll)} colorScheme="blue">
+                    {showAll ? "Hide" : `Show more (${stacks.length - 3})`}
+                </Button>
+            </Box>
         </Box>
     )
 }
