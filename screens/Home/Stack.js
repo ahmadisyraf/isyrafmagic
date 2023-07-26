@@ -16,26 +16,26 @@ const StackScreen = ({ isMobile }) => {
                 </Text>
             </Box>
             <Grid templateColumns={isMobile ? 'repeat(1, 1fr)' : 'repeat(4, 1fr)'} gap={3}>
-                {data.map((d, i) => {
+                {stacks.map((stack, index) => {
                     return (
-                        <GridItem key={i}>
+                        <GridItem key={index}>
                             <Card variant={"outline"} px={5} h={180} display={"flex"} flexDirection={"row"} alignItems={"center"} boxShadow={"xs"}>
                                 <Stack direction={"row"} spacing={2}>
-                                    <Icon as={d.icon.type} boxSize={10} color={d.color} />
+                                    <Icon as={stack.icon.type} boxSize={10} color={stack.color} />
                                     <Stack direction={"column"} spacing={1}>
                                         <Stack direction={"row"} spacing={1} display={"flex"} flexDirection={"row"} alignItems={"center"}>
                                             <Text fontWeight={"bold"}>
-                                                {d.title}
+                                                {stack.title}
                                             </Text>
                                             <IconButton
                                                 variant={"ghost"}
                                                 icon={<ExternalLinkIcon />}
                                                 borderRadius={"100%"}
-                                                onClick={() => router.push(d.url)}
+                                                onClick={() => router.push(stack.url)}
                                             />
                                         </Stack>
                                         <Text>
-                                            {d.description}
+                                            {stack.description}
                                         </Text>
                                     </Stack>
                                 </Stack>
@@ -48,7 +48,7 @@ const StackScreen = ({ isMobile }) => {
     )
 }
 
-const data = [
+const stacks = [
     {
         icon: <SiReact />,
         title: "React",

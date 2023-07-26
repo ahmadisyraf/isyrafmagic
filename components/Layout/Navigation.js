@@ -1,6 +1,7 @@
 import { Box, Button, Text, Stack, Spacer, useMediaQuery, Menu, MenuItem, MenuButton, IconButton, MenuList } from "@chakra-ui/react";
 import Link from "next/link";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { FaGithub } from "react-icons/fa"
 
 const Navigation = () => {
     const [isMobile] = useMediaQuery("(max-width: 768px)", {
@@ -52,7 +53,7 @@ const Navigation = () => {
                     <Stack direction={"row"} spacing={1} align={"center"}>
                         {navigations.map((navigation, index) => (
                             <Link href={navigation.path} key={index}>
-                                <Button colorScheme="teal" variant={"ghost"}>
+                                <Button colorScheme="teal" variant={"ghost"} leftIcon={navigation.icon? navigation.icon : null}>
                                     {navigation.name}
                                 </Button>
                             </Link>
@@ -65,8 +66,9 @@ const Navigation = () => {
 };
 
 const navigations = [
-    { name: "Works", path: "/works" },
-    { name: "Gallery", path: "/gallery" }
+    { name: "Works", path: "/works", icon: null },
+    { name: "Gallery", path: "/gallery", icon: null },
+    { name: "Source", path: "https://github.com/ahmadisyraf/isyrafmagic", icon: <FaGithub /> }
 ]
 
 export default Navigation;
