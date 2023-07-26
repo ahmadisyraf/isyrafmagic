@@ -3,7 +3,7 @@ import { TwitterEmbed } from "react-social-media-embed"
 
 const TwitterScreen = ({ isMobile }) => {
     return (
-        <Box w={"100%"}>
+        <Box w={"100%"} mt={20}>
             <Heading textAlign={"center"} mb={10}>
                 Follow me on Twitter
             </Heading>

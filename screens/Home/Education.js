@@ -44,11 +44,11 @@ const EducationScreen = ({ isMobile }) => {
                 <Heading textAlign={isMobile ? "center" : ""}>
                     Education Background
                 </Heading>
-                <Text fontSize="xl" textAlign={isMobile ? "center" : ""} mt={5}>
+                <Text fontSize="xl" textAlign={isMobile ? "center" : ""} my={5}>
                     Education 📚 has been a transformative journey for me, shaping my character and opening doors 🚪 to new opportunities. From the early days of curiosity to the present, I continue to embrace learning as a lifelong student 👨‍🎓
                 </Text>
             </Box>
-            <Spacer />
+            <Spacer/>
             <Example />
         </Stack>
     )
