@@ -5,10 +5,11 @@ import HeaderScreen from "./Header";
 import StackScreen from "./Stack";
 import WorkScreen from "./Work";
 import AboutmeScreen from "./Aboutme";
+import ContactScreen from "./Contact";
 
 import useBreakPoints from "../../hooks/useBreakpoints";
 
-const HomeScreen = ({ worksRef, aboutMeRef, techStackRef }) => {
+const HomeScreen = ({ worksRef, aboutMeRef, techStackRef, contactRef }) => {
   const { isMobile } = useBreakPoints();
 
   return (
@@ -18,6 +19,7 @@ const HomeScreen = ({ worksRef, aboutMeRef, techStackRef }) => {
         <AboutmeScreen isMobile={isMobile} aboutMeRef={aboutMeRef} />
         <WorkScreen isMobile={isMobile} worksRef={worksRef} />
         <StackScreen isMobile={isMobile} techStackRef={techStackRef} />
+        <ContactScreen isMobile={isMobile} contactRef={contactRef}/>
       </Stack>
     </Box>
   );

@@ -41,7 +41,7 @@ const WorkScreen = ({ isMobile, worksRef }) => {
           >
             <Stack
               direction={isMobile ? "column" : "row"}
-              spacing={"20px"}
+              spacing={"30px"}
               display={"flex"}
               alignItems={"center"}
             >
@@ -49,10 +49,10 @@ const WorkScreen = ({ isMobile, worksRef }) => {
                 src={work.path}
                 borderRadius={10}
                 fallback={
-                  <Skeleton height={"250px"} width={"100%"} borderRadius={10} />
+                  <Skeleton height={"260px"} width={"100%"} borderRadius={10} />
                 }
                 objectFit="cover"
-                height="250px"
+                height="260px"
                 width="100%"
               />
               <Box display={"flex"} flexDirection={"row"} alignItems={"center"}>

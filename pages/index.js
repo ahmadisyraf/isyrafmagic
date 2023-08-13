@@ -9,6 +9,7 @@ export default function HomePages() {
   const aboutMeRef = useRef(null);
   const worksRef = useRef(null);
   const techStackRef = useRef(null);
+  const contactRef = useRef(null);
 
   return (
     <Box position={"relative"}>
@@ -16,12 +17,14 @@ export default function HomePages() {
         aboutMeRef={aboutMeRef}
         worksRef={worksRef}
         techStackRef={techStackRef}
+        contactRef={contactRef}
       />
       <Box py={20}>
         <HomeScreen
           aboutMeRef={aboutMeRef}
           worksRef={worksRef}
           techStackRef={techStackRef}
+          contactRef={contactRef}
         />
       </Box>
       <Footer />

@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { EmailIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
-import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
+import { AiFillLinkedin, AiFillGithub, AiFillTwitterCircle } from "react-icons/ai";
 
 const HeaderScreen = ({ isMobile }) => {
   const router = useRouter();
@@ -34,7 +34,7 @@ const HeaderScreen = ({ isMobile }) => {
         flexDirection={"row"}
         justifyContent={"center"}
         mb={3}
-      >
+      > 
         <Image
           borderRadius="full"
           boxSize={isMobile ? "150px" : "180px"}
@@ -67,7 +67,7 @@ const HeaderScreen = ({ isMobile }) => {
           mt={5}
         >
           <HStack spacing={"10px"}>
-            <Button
+            {/* <Button
               variant="solid"
               bg="gray.900"
               color={"white"}
@@ -79,7 +79,7 @@ const HeaderScreen = ({ isMobile }) => {
               onClick={handleEmail}
             >
               Contact Me
-            </Button>
+            </Button> */}
             <IconButton variant={"ghost"} onClick={handleLinkedin}>
               <AiFillLinkedin fontSize={25} />
             </IconButton>
