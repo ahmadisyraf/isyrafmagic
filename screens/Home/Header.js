@@ -41,6 +41,7 @@ const HeaderScreen = ({ isMobile }) => {
           src="/profile.jpg"
           alt="isyrafmagic"
           border={"4px solid lightgrey"}
+          
         />
       </Box>
       <Box>
