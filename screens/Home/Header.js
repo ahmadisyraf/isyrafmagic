@@ -38,10 +38,10 @@ const HeaderScreen = ({ isMobile }) => {
         <Image
           borderRadius="full"
           boxSize={isMobile ? "150px" : "180px"}
-          src="/profile.jpg"
+          src="/myprofile.jpg"
           alt="isyrafmagic"
           border={"4px solid lightgrey"}
-          
+
         />
       </Box>
       <Box>
