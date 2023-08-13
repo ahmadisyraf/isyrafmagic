@@ -14,11 +14,9 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 
-
-
 import useBreakPoints from "../../hooks/useBreakpoints";
 
-const Navigation = ({ aboutMeRef, worksRef, techStackRef }) => {
+const Navigation = ({ aboutMeRef, worksRef, techStackRef, contactRef }) => {
   const { isMobile } = useBreakPoints();
   const [clickedButton, setClickedButton] = useState("");
 
@@ -33,6 +31,8 @@ const Navigation = ({ aboutMeRef, worksRef, techStackRef }) => {
       } else if (clickedButton === "Tech Stack") {
         techStackRef.current.scrollIntoView({ behavior: "smooth" });
         setClickedButton("");
+      } else if (clickedButton === "Contact") {
+        contactRef.current.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, [clickedButton]);
@@ -100,6 +100,7 @@ const navigations = [
   { name: "About me" },
   { name: "Works" },
   { name: "Tech Stack" },
+  { name: "Contact" },
 ];
 
 export default Navigation;
