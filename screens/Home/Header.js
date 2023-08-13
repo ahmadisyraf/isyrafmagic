@@ -18,6 +18,14 @@ const HeaderScreen = ({ isMobile }) => {
     router.push("mailto:isyrafmagic@gmail.com");
   };
 
+  const handleGithub = () => {
+    router.push("https://github.com/ahmadisyraf");
+  }
+
+  const handleLinkedin = () => {
+    router.push("https://www.linkedin.com/in/ahmad-isyraf-350348b8/");
+  }
+
   return (
     <Box py={20} px={isMobile? 5 : 10} bg={"gray.100"} borderRadius={20}>
       <Box
@@ -71,10 +79,10 @@ const HeaderScreen = ({ isMobile }) => {
             >
               Contact Me
             </Button>
-            <IconButton variant={"ghost"}>
+            <IconButton variant={"ghost"} onClick={handleLinkedin}>
               <AiFillLinkedin fontSize={25} />
             </IconButton>
-            <IconButton variant={"ghost"}>
+            <IconButton variant={"ghost"} onClick={handleGithub}>
               <AiFillGithub fontSize={25} />
             </IconButton>
           </HStack>
