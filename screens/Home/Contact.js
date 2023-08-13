@@ -202,7 +202,7 @@ const FormSubmited = () => {
         Submited!
       </AlertTitle>
       <AlertDescription maxWidth="sm">
-        Thanks for reaching out. I'll get back to you as soon as I can.
+        Thanks for reaching out. I&apos;ll get back to you as soon as I can.
       </AlertDescription>
     </Alert>
   );
