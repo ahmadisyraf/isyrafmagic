@@ -6,35 +6,18 @@ import StackScreen from "./Stack";
 import WorkScreen from "./Work";
 import AboutmeScreen from "./Aboutme";
 
-const HomeScreen = () => {
-  const [isMobile] = useMediaQuery("(max-width: 768px)", {
-    ssr: true,
-    fallback: true, // return false on the server, and re-evaluate on the client side
-  });
+import useBreakPoints from "../../hooks/useBreakpoints";
 
-  const WorkScreenRef = useRef(null);
-  let navigation;
-  if (typeof localStorage !== "undefined") {
-    navigation = localStorage.getItem("navigation");
-  }
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.localStorage) {
-    //   if (navigation === "Works") {
-    //     WorkScreenRef.current.scrollIntoView({ behavior: "smooth" });
-    //     localStorage.removeItem("navigation");
-    //   }
-    console.log(navigation)
-    }
-  });
+const HomeScreen = ({ worksRef, aboutMeRef, techStackRef }) => {
+  const { isMobile } = useBreakPoints();
 
   return (
     <Box mx={isMobile ? 5 : 200} pb={20} position={"relative"}>
-      <Stack direction={"column"} spacing={100}>
+      <Stack direction={"column"} spacing={0}>
         <HeaderScreen isMobile={isMobile} />
-        <AboutmeScreen isMobile={isMobile} />
-        <WorkScreen WorkScreenRef={WorkScreenRef} />
-        <StackScreen isMobile={isMobile} />
+        <AboutmeScreen isMobile={isMobile} aboutMeRef={aboutMeRef} />
+        <WorkScreen isMobile={isMobile} worksRef={worksRef} />
+        <StackScreen isMobile={isMobile} techStackRef={techStackRef} />
       </Stack>
     </Box>
   );

@@ -12,12 +12,28 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { useEffect, useState } from "react";
 
-const Navigation = () => {
-  const [isMobile] = useMediaQuery("(max-width: 768px)", {
-    ssr: true,
-    fallback: true, // return false on the server, and re-evaluate on the client side
-  });
+import useBreakPoints from "../../hooks/useBreakpoints";
+
+const Navigation = ({ aboutMeRef, worksRef, techStackRef }) => {
+  const { isMobile } = useBreakPoints();
+  const [clickedButton, setClickedButton] = useState("");
+
+  useEffect(() => {
+    if (clickedButton) {
+      if (clickedButton === "Works") {
+        worksRef.current.scrollIntoView({ behavior: "smooth" });
+        setClickedButton("");
+      } else if (clickedButton === "About me") {
+        aboutMeRef.current.scrollIntoView({ behavior: "smooth" });
+        setClickedButton("");
+      } else if (clickedButton === "Tech Stack") {
+        techStackRef.current.scrollIntoView({ behavior: "smooth" });
+        setClickedButton("");
+      }
+    }
+  }, [clickedButton]);
 
   return (
     <Box
@@ -49,7 +65,12 @@ const Navigation = () => {
             />
             <MenuList>
               {navigations.map((navigation, index) => (
-                <MenuItem key={index}>{navigation.name}</MenuItem>
+                <MenuItem
+                  key={index}
+                  onClick={() => setClickedButton(navigation.name)}
+                >
+                  {navigation.name}
+                </MenuItem>
               ))}
             </MenuList>
           </Menu>
@@ -61,9 +82,7 @@ const Navigation = () => {
                 key={index}
                 variant={"ghost"}
                 leftIcon={navigation.icon ? navigation.icon : null}
-                onClick={() =>
-                  localStorage.setItem("navigation", navigation.name)
-                }
+                onClick={() => setClickedButton(navigation.name)}
               >
                 {navigation.name}
               </Button>

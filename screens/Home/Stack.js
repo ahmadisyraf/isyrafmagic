@@ -19,11 +19,11 @@ import {
 import { TbBrandNextjs, TbBrandMysql } from "react-icons/tb";
 import { useRouter } from "next/router";
 
-const StackScreen = ({ isMobile }) => {
+const StackScreen = ({ isMobile, techStackRef }) => {
   const router = useRouter();
 
   return (
-    <Box px={isMobile ? 5 : 20}>
+    <Box px={isMobile ? 5 : 20} ref={techStackRef} py={20}>
       <Box w={"100%"} mb={10} textAlign={"center"}>
         <Heading size={"md"} color={"gray.600"} mb={2}>
           TECH STACK
@@ -48,6 +48,7 @@ const StackScreen = ({ isMobile }) => {
                 boxShadow={"md"}
                 width={"fit-content"}
                 borderRadius={"full"}
+                cursor={"pointer"}
                 onClick={() => router.push(stack.url)}
               >
                 <Stack direction={"row"} spacing={2}>

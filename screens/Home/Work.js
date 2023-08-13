@@ -1,7 +1,6 @@
 import {
   Box,
   Image,
-  useMediaQuery,
   Heading,
   Text,
   Skeleton,
@@ -12,14 +11,9 @@ import {
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 
-const WorkScreen = ({ WorkScreenRef }) => {
-  const [isMobile] = useMediaQuery("(max-width: 768px)", {
-    ssr: true,
-    fallback: true, // return false on the server, and re-evaluate on the client side
-  });
-
+const WorkScreen = ({ isMobile, worksRef }) => {
   return (
-    <Box ref={WorkScreenRef}>
+    <Box ref={worksRef} py={20}>
       <Box w="100%">
         <Heading size={"md"} mb={2} textAlign={"center"} color={"gray.600"}>
           WORKS
