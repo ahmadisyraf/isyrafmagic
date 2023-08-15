@@ -8,110 +8,82 @@ import {
   Stack,
   Card,
   Button,
+  CardHeader,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/router";
 
 const WorkScreen = ({ isMobile, worksRef }) => {
+  const router = useRouter();
   return (
     <Box ref={worksRef} py={20}>
       <Box w="100%">
-        <Heading size={"md"} mb={2} textAlign={"center"} color={"gray.600"}>
-          WORKS
-        </Heading>
-        <Heading size={"lg"} mb={10} textAlign={"center"}>
-          Each project stands as a unique development undertaking 💼
+        <Heading size={"xl"} mb={10} textAlign={"left"}>
+          Here are the projects I've been involved in
         </Heading>
       </Box>
-      <Box
-        w={"100%"}
-        display={"flex"}
-        flexDirection={"row"}
-        justifyContent={"center"}
-      >
+      <Stack direction={isMobile ? "column" : "row"} spacing={isMobile ? 8 : 4}>
         {works.map((work, index) => (
           <Card
             key={index}
             variant="outline"
-            px={isMobile ? 5 : 10}
-            py={10}
             position={"relative"}
-            // maxW={500}
+            maxW={500}
             shadow={"md"}
-            borderRadius={20}
+            borderRadius={15}
+            overflow={"hidden"}
+            w={isMobile ? "100%" : "auto"}
+            height={isMobile ? 400 : "auto"}
           >
-            <Stack
-              direction={isMobile ? "column" : "row"}
-              spacing={"30px"}
+            <Image
+              src={work.path}
+              borderRadius={10}
+              fallback={
+                <Skeleton
+                  height={"260px"}
+                  width={"100%"}
+                  borderRadius={10}
+                  opacity={1}
+                />
+              }
+              objectFit="cover"
+              height="100%"
+              width="100%"
+            />
+            <Box
+              position={"absolute"}
+              bg={"rgba(0, 0, 0, 0.7)"}
+              backdropFilter={"blur(0.5px)"}
+              h={"100%"}
+              color={"white"}
+              px={5}
+              py={10}
               display={"flex"}
+              flexDirection={"row"}
+              justifyContent={"center"}
               alignItems={"center"}
             >
-              <Image
-                src={work.path}
-                borderRadius={10}
-                fallback={
-                  <Skeleton height={"260px"} width={"100%"} borderRadius={10} />
-                }
-                objectFit="cover"
-                height="260px"
-                width="100%"
-              />
-              <Box display={"flex"} flexDirection={"row"} alignItems={"center"}>
-                <Box>
-                  <Text
-                    textAlign={"center"}
-                    color={"gray.500"}
-                    fontSize={"md"}
-                    mb={1}
-                  >
-                    <b>{work.category}</b>
-                  </Text>
-                  <Heading fontSize={"xl"} textAlign={"center"}>
-                    {work.title}
-                  </Heading>
-                  <Text
-                    fontSize={"lg"}
-                    textAlign={"center"}
-                    color={"gray.600"}
-                    mt={3}
-                  >
-                    {work.content}
-                  </Text>
-                  <Box
-                    display={"flex"}
-                    flexDirection={"row"}
-                    justifyContent="center"
-                    alignItems={"center"}
-                    mt={3}
-                  >
-                    <Stack direction={"row"} spacing={3}>
-                      {work.tools.map((tool, toolIndex) => (
-                        <Badge key={toolIndex}>{tool}</Badge>
-                      ))}
-                    </Stack>
-                  </Box>
-                  <Box
-                    w={"100%"}
-                    display={"flex"}
-                    flexDirection={"row"}
-                    justifyContent={"center"}
-                    mt={5}
-                  >
-                    <Button
-                      variant={"ghost"}
-                      rightIcon={<ExternalLinkIcon />}
-                      as="a"
-                      href={work.url}
-                      target="_blank"
-                    >
-                      Visit Website
-                    </Button>
-                  </Box>
-                </Box>
-              </Box>
-            </Stack>
+              <Stack direction={"column"} spacing={"10px"}>
+                <Heading size={"md"}>{work.title}</Heading>
+                <Text size={"md"} color={"gray.200"}>
+                  {work.content}
+                </Text>
+                <Button
+                  variant={"outline"}
+                  width={"fit-content"}
+                  rightIcon={<ExternalLinkIcon />}
+                  colorScheme="whiteAlpha"
+                  color={"white"}
+                  mt={2}
+                  onClick={() => router.push(work.url)}
+                >
+                  Visit
+                </Button>
+              </Stack>
+            </Box>
           </Card>
         ))}
-      </Box>
+      </Stack>
     </Box>
   );
 };
@@ -120,9 +92,14 @@ const works = [
   {
     path: "/crib.my.png",
     category: "FEATURED PROJECT",
-    title: "MyCrib Web Application",
-    content:
-      "Build new crib website with a focus on user management and front-end design. Collaborating with other teams, we completed the project within a year and updated all dependency libraries. Our goal was to create a modern, minimalist website with a clean interface and flawless performance on all devices.",
+    title: "MyCrib",
+    content: `
+      This project encompasses multiple tasks: proficiently handling
+      user accounts, establishing a logical user journey, crafting a
+      sleek and adaptable interface that guarantees seamless
+      performance across devices, and also focusing on enhancing
+      performance by upgrading all dependencies to their most
+      up-to-date versions for improved functionality and security.`,
     url: "https://crib.my/",
     tools: ["NextJS", "Material-UI", "Firebase", "Redux"],
   },
