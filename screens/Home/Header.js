@@ -92,8 +92,16 @@ const HeaderScreen = ({ isMobile }) => {
             </IconButton>
           </HStack>
         </Box>
-        <HStack>
-          <Button variant={"solid"}>Contact me</Button>
+        <HStack mt={5}>
+          <Button
+            variant={"solid"}
+            bgColor={"gray.900"}
+            color={"white"}
+            _hover={{ bgColor: "gray.700" }}
+          >
+            Contact me
+          </Button>
+          <Button variant={"outline"} border={"1px solid #171923"}>Download resume</Button>
         </HStack>
       </Box>
       {isMobile ? null : (
