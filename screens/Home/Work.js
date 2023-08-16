@@ -30,12 +30,12 @@ const WorkScreen = ({ isMobile, worksRef }) => {
             <Card
               variant="outline"
               position={"relative"}
-              maxW={500}
+              maxW={400}
               shadow={"md"}
               borderRadius={15}
               overflow={"hidden"}
               w={isMobile ? "100%" : "auto"}
-              height={isMobile ? 400 : "auto"}
+              aspectRatio={1}
             >
               <Image
                 src={work.path}
@@ -73,7 +73,16 @@ const WorkScreen = ({ isMobile, worksRef }) => {
                   >
                     <ExternalLinkIcon />
                   </Icon>
-                  <Heading size={"md"}>{work.title}</Heading>
+                  <Box
+                    display={"flex"}
+                    flexDirection={"row"}
+                    alignItems={"center"}
+                  >
+                    <Heading size={"md"}>{work.title}</Heading>
+                    <Text variant={"sm"} color={"gray.200"} ml={2}>
+                      ({work.category})
+                    </Text>
+                  </Box>
                   <Text size={"md"} fontWeight={"500"} color={"gray.200"}>
                     {work.content}
                   </Text>
@@ -90,7 +99,7 @@ const WorkScreen = ({ isMobile, worksRef }) => {
 const works = [
   {
     path: "/crib.my.png",
-    category: "FEATURED PROJECT",
+    category: "Featured Project",
     title: "MyCrib",
     content: `
       This project encompasses multiple tasks: proficiently handling
