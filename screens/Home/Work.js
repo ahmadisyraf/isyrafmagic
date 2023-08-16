@@ -26,9 +26,8 @@ const WorkScreen = ({ isMobile, worksRef }) => {
       </Box>
       <Stack direction={isMobile ? "column" : "row"} spacing={isMobile ? 8 : 4}>
         {works.map((work, index) => (
-          <Link href={work.url}>
+          <Link href={work.url} key={index}>
             <Card
-              key={index}
               variant="outline"
               position={"relative"}
               maxW={500}

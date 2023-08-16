@@ -8,7 +8,12 @@ import {
   TabPanel,
   TabPanels,
   Stack,
+  List,
+  ListIcon,
+  Grid,
+  ListItem,
 } from "@chakra-ui/react";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 const AboutmeScreen = ({ isMobile, aboutMeRef }) => {
   return (
@@ -25,9 +30,9 @@ const AboutmeScreen = ({ isMobile, aboutMeRef }) => {
             <Tab>Education</Tab>
           </TabList>
 
-          <TabPanels mt={isMobile? 5 : 0 }>
+          <TabPanels mt={isMobile ? 5 : 0}>
             <TabPanel px={0}>
-              <Box height={"100%"} px={isMobile? 0 : 100}>
+              <Box height={"100%"} px={isMobile ? 0 : 100}>
                 <Stack spacing={"10px"} direction={"column"}>
                   <Heading size={"md"}>
                     Software Engineering (part-time) @ MyCrib
@@ -36,18 +41,51 @@ const AboutmeScreen = ({ isMobile, aboutMeRef }) => {
                   <Text color={"gray.600"} mt={1}>
                     After completing my internship as a front-end developer at
                     MyCrib, I was offered a part-time position while pursuing my
-                    degree in Computer Science (Software Engineering). In this
-                    role, I focus on developing web applications using various
-                    languages, frameworks, and Content Management Systems (CMS)
-                    like JavaScript, Next.js, and Strapi. Additionally, I
-                    regularly communicate with multi-disciplinary engineering
-                    teams on a daily basis.
+                    Bachelor of Computer Science (Software Engineering) with
+                    Honours. In this role, I focus on developing web
+                    applications using various languages, frameworks, and
+                    Content Management Systems (CMS) like JavaScript, Next.js,
+                    and Strapi. Additionally, I regularly communicate with
+                    multi-disciplinary engineering teams on a daily basis.
                   </Text>
+                  <Text color={"gray.600"} mt={2}>
+                    Here are a few technologies I&apos;ve been working with
+                    during this job:
+                  </Text>
+                  <List spacing={3}>
+                    <Grid templateColumns="repeat(2, 1fr)" gap={5} color={"gray.600"}>
+                      <ListItem>
+                        <ListIcon as={ArrowForwardIcon} color="gray.600" />
+                        Next.js
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={ArrowForwardIcon} color="gray.600" />
+                        Material-UI
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={ArrowForwardIcon} color="gray.600" />
+                        Firebase Auth
+                      </ListItem>
+                      {/* You can also use custom icons from react-icons */}
+                      <ListItem>
+                        <ListIcon as={ArrowForwardIcon} color="gray.600" />
+                        Redux
+                      </ListItem>{" "}
+                      <ListItem>
+                        <ListIcon as={ArrowForwardIcon} color="gray.600" />
+                        Google Cloud
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={ArrowForwardIcon} color="gray.600" />
+                        Strapi
+                      </ListItem>
+                    </Grid>
+                  </List>
                 </Stack>
               </Box>
             </TabPanel>
             <TabPanel px={0}>
-              <Box height={"100%"} px={isMobile? 0 : 100}>
+              <Box height={"100%"} px={isMobile ? 0 : 100}>
                 <Stack spacing={"10px"} direction={"column"}>
                   <Heading size={"md"}>Education Journey</Heading>
                   <Text size={"sm"}>2011 - Present</Text>
