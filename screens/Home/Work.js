@@ -10,6 +10,7 @@ import {
   Button,
   CardHeader,
   Icon,
+  HStack,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
@@ -73,16 +74,12 @@ const WorkScreen = ({ isMobile, worksRef }) => {
                   >
                     <ExternalLinkIcon />
                   </Icon>
-                  <Box
-                    display={"flex"}
-                    flexDirection={"row"}
-                    alignItems={"center"}
-                  >
+                  <HStack spacing={"10px"} display={"flex"} flexDirection={"row"} alignItems={"center"}>
                     <Heading size={"md"}>{work.title}</Heading>
-                    <Text variant={"sm"} color={"gray.200"} ml={2}>
-                      ({work.category})
-                    </Text>
-                  </Box>
+                    <Badge w={"fit-content"}>
+                      {work.category}
+                    </Badge>
+                  </HStack>
                   <Text size={"md"} fontWeight={"500"} color={"gray.200"}>
                     {work.content}
                   </Text>
@@ -99,7 +96,7 @@ const WorkScreen = ({ isMobile, worksRef }) => {
 const works = [
   {
     path: "/crib.my.png",
-    category: "Featured Project",
+    category: "Featured",
     title: "MyCrib",
     content: `
       This project encompasses multiple tasks: proficiently handling

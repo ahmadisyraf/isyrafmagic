@@ -1,5 +1,5 @@
 import { Box, Text, HStack, IconButton } from "@chakra-ui/react";
-import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
+import { AiFillLinkedin, AiFillGithub, AiOutlineTwitter } from "react-icons/ai";
 import { useRouter } from "next/router";
 
 const Footer = () => {
@@ -12,6 +12,28 @@ const Footer = () => {
   const handleLinkedin = () => {
     router.push("https://www.linkedin.com/in/ahmad-isyraf-350348b8/");
   };
+
+  const handleTwitter = () => {
+    router.push("https://twitter.com/isyrafmagic");
+  };
+
+  const socials = [
+    {
+      name: "Github",
+      icon: <AiFillGithub fontSize={25} />,
+      handle: handleGithub,
+    },
+    {
+      name: "Linkedin",
+      icon: <AiFillLinkedin fontSize={25} />,
+      handle: handleLinkedin,
+    },
+    {
+      name: "Twitter",
+      icon: <AiOutlineTwitter fontSize={25} />,
+      handle: handleTwitter,
+    },
+  ];
 
   return (
     <Box
@@ -28,16 +50,16 @@ const Footer = () => {
         © 2023 Ahmad Isyraf. All Rights Reserved
       </Text>
       <HStack spacing={"10px"}>
-        <IconButton
-          variant={"ghost"}
-          color={"gray.600"}
-          onClick={handleLinkedin}
-        >
-          <AiFillLinkedin fontSize={25} />
-        </IconButton>
-        <IconButton variant={"ghost"} color={"gray.600"} onClick={handleGithub}>
-          <AiFillGithub fontSize={25} />
-        </IconButton>
+        {socials.map((social, index) => (
+          <IconButton
+            key={index}
+            variant={"ghost"}
+            color={"gray.600"}
+            onClick={social.handle}
+          >
+            {social.icon}
+          </IconButton>
+        ))}
       </HStack>
     </Box>
   );
