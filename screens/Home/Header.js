@@ -102,10 +102,11 @@ const HeaderScreen = ({ isMobile }) => {
             bgColor={"gray.900"}
             color={"white"}
             _hover={{ bgColor: "gray.700" }}
+            onClick={handleEmail}
           >
             Contact me
           </Button>
-          <Button variant={"outline"} border={"1px solid #171923"}>Download resume</Button>
+          <Button variant={"outline"} border={"1px solid #171923"} isDisabled={true}>Download resume</Button>
         </HStack>
       </Box>
       {isMobile ? null : (

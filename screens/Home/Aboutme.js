@@ -35,7 +35,7 @@ const AboutmeScreen = ({ isMobile, aboutMeRef }) => {
               <Box height={"100%"} px={isMobile ? 0 : 100}>
                 <Stack spacing={"10px"} direction={"column"}>
                   <Heading size={"md"}>
-                    Software Engineering (part-time) @ MyCrib
+                    Software Engineer (part-time) @ MyCrib
                   </Heading>
                   <Text size={"sm"}>2020 - Present</Text>
                   <Text color={"gray.600"} mt={1}>

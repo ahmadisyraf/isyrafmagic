@@ -8,24 +8,12 @@ import { useRef } from "react";
 export default function HomePages() {
   const aboutMeRef = useRef(null);
   const worksRef = useRef(null);
-  const techStackRef = useRef(null);
-  const contactRef = useRef(null);
 
   return (
     <Box position={"relative"}>
-      <Navigation
-        aboutMeRef={aboutMeRef}
-        worksRef={worksRef}
-        techStackRef={techStackRef}
-        contactRef={contactRef}
-      />
+      <Navigation aboutMeRef={aboutMeRef} worksRef={worksRef} />
       <Box py={20}>
-        <HomeScreen
-          aboutMeRef={aboutMeRef}
-          worksRef={worksRef}
-          techStackRef={techStackRef}
-          contactRef={contactRef}
-        />
+        <HomeScreen aboutMeRef={aboutMeRef} worksRef={worksRef} />
       </Box>
       <Footer />
     </Box>

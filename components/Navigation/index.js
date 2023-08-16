@@ -13,23 +13,26 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 import useBreakPoints from "../../hooks/useBreakpoints";
 
 const Navigation = ({ aboutMeRef, worksRef, techStackRef, contactRef }) => {
+  const router = useRouter();
   const { isMobile } = useBreakPoints();
   const [clickedButton, setClickedButton] = useState("");
 
+  const handleEmail = () => {
+    router.push("mailto:isyrafmagic@gmail.com");
+  };
+
   useEffect(() => {
     if (clickedButton) {
-      if (clickedButton === "Works") {
+      if (clickedButton === "Projects") {
         worksRef.current.scrollIntoView({ behavior: "smooth" });
         setClickedButton("");
       } else if (clickedButton === "About me") {
         aboutMeRef.current.scrollIntoView({ behavior: "smooth" });
-        setClickedButton("");
-      } else if (clickedButton === "Tech Stack") {
-        techStackRef.current.scrollIntoView({ behavior: "smooth" });
         setClickedButton("");
       } else if (clickedButton === "Contact") {
         contactRef.current.scrollIntoView({ behavior: "smooth" });
@@ -69,7 +72,11 @@ const Navigation = ({ aboutMeRef, worksRef, techStackRef, contactRef }) => {
               {navigations.map((navigation, index) => (
                 <MenuItem
                   key={index}
-                  onClick={() => setClickedButton(navigation.name)}
+                  onClick={
+                    navigation.name !== "Contact me"
+                      ? () => setClickedButton(navigation.name)
+                      : handleEmail
+                  }
                 >
                   {navigation.name}
                 </MenuItem>
@@ -84,7 +91,11 @@ const Navigation = ({ aboutMeRef, worksRef, techStackRef, contactRef }) => {
                 key={index}
                 variant={"ghost"}
                 leftIcon={navigation.icon ? navigation.icon : null}
-                onClick={() => setClickedButton(navigation.name)}
+                onClick={
+                  navigation.name !== "Contact me"
+                    ? () => setClickedButton(navigation.name)
+                    : handleEmail
+                }
               >
                 {navigation.name}
               </Button>
@@ -98,10 +109,8 @@ const Navigation = ({ aboutMeRef, worksRef, techStackRef, contactRef }) => {
 
 const navigations = [
   { name: "About me" },
-  { name: "Works" },
-  { name: "Tech Stack" },
-  { name: "Contact" },
+  { name: "Projects" },
+  { name: "Contact me" },
 ];
 
 export default Navigation;
- 
