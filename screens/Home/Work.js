@@ -9,9 +9,11 @@ import {
   Card,
   Button,
   CardHeader,
+  Icon,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const WorkScreen = ({ isMobile, worksRef }) => {
   const router = useRouter();
@@ -24,64 +26,62 @@ const WorkScreen = ({ isMobile, worksRef }) => {
       </Box>
       <Stack direction={isMobile ? "column" : "row"} spacing={isMobile ? 8 : 4}>
         {works.map((work, index) => (
-          <Card
-            key={index}
-            variant="outline"
-            position={"relative"}
-            maxW={500}
-            shadow={"md"}
-            borderRadius={15}
-            overflow={"hidden"}
-            w={isMobile ? "100%" : "auto"}
-            height={isMobile ? 400 : "auto"}
-          >
-            <Image
-              src={work.path}
-              borderRadius={10}
-              fallback={
-                <Skeleton
-                  height={"260px"}
-                  width={"100%"}
-                  borderRadius={10}
-                  opacity={1}
-                />
-              }
-              objectFit="cover"
-              height="100%"
-              width="100%"
-            />
-            <Box
-              position={"absolute"}
-              bg={"rgba(0, 0, 0, 0.7)"}
-              backdropFilter={"blur(0.5px)"}
-              h={"100%"}
-              color={"white"}
-              px={5}
-              py={10}
-              display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"center"}
-              alignItems={"center"}
+          <Link href={work.url}>
+            <Card
+              key={index}
+              variant="outline"
+              position={"relative"}
+              maxW={500}
+              shadow={"md"}
+              borderRadius={15}
+              overflow={"hidden"}
+              w={isMobile ? "100%" : "auto"}
+              height={isMobile ? 400 : "auto"}
             >
-              <Stack direction={"column"} spacing={"10px"}>
-                <Heading size={"md"}>{work.title}</Heading>
-                <Text size={"md"} color={"gray.200"}>
-                  {work.content}
-                </Text>
-                <Button
-                  variant={"outline"}
-                  width={"fit-content"}
-                  rightIcon={<ExternalLinkIcon />}
-                  colorScheme="whiteAlpha"
-                  color={"white"}
-                  mt={2}
-                  onClick={() => router.push(work.url)}
-                >
-                  Visit
-                </Button>
-              </Stack>
-            </Box>
-          </Card>
+              <Image
+                src={work.path}
+                borderRadius={10}
+                fallback={
+                  <Skeleton
+                    height={"260px"}
+                    width={"100%"}
+                    borderRadius={10}
+                    opacity={1}
+                  />
+                }
+                objectFit="cover"
+                height="100%"
+                width="100%"
+              />
+              <Box
+                position={"absolute"}
+                bg={"rgba(0, 0, 0, 0.7)"}
+                backdropFilter={"blur(0.5px)"}
+                h={"100%"}
+                color={"white"}
+                px={10}
+                display={"flex"}
+                flexDirection={"row"}
+                justifyContent={"center"}
+                alignItems={"center"}
+              >
+                <Stack direction={"column"} spacing={"10px"}>
+                  <Icon
+                    fontSize={20}
+                    position={"absolute"}
+                    top={"10"}
+                    right={"10"}
+                  >
+                    <ExternalLinkIcon />
+                  </Icon>
+                  <Heading size={"md"}>{work.title}</Heading>
+                  <Text size={"md"} fontWeight={"500"} color={"gray.200"}>
+                    {work.content}
+                  </Text>
+                </Stack>
+              </Box>
+            </Card>
+          </Link>
         ))}
       </Stack>
     </Box>

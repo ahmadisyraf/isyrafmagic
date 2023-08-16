@@ -27,6 +27,10 @@ const HeaderScreen = ({ isMobile }) => {
     router.push("https://www.linkedin.com/in/ahmad-isyraf-350348b8/");
   };
 
+  const handleTwitter = () => {
+    router.push("https://twitter.com/isyrafmagic");
+  }
+
   return (
     <Box
       py={20}
@@ -51,7 +55,7 @@ const HeaderScreen = ({ isMobile }) => {
             borderRadius="full"
             border={`4px solid black`}
             boxSize={"100%"}
-            maxWidth={"180"}
+            maxWidth={"150"}
             bg={"gray.100"}
             src="/isyraf-minum.png"
             alt="isyrafmagic"
@@ -87,7 +91,7 @@ const HeaderScreen = ({ isMobile }) => {
             <IconButton variant={"ghost"} onClick={handleLinkedin}>
               <AiFillLinkedin fontSize={25} />
             </IconButton>
-            <IconButton variant={"ghost"} onClick={handleGithub}>
+            <IconButton variant={"ghost"} onClick={handleTwitter}>
               <AiOutlineTwitter fontSize={25} />
             </IconButton>
           </HStack>
