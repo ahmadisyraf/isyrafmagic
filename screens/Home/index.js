@@ -18,7 +18,7 @@ const HomeScreen = ({ worksRef, aboutMeRef, techStackRef, contactRef }) => {
         <HeaderScreen isMobile={isMobile} />
         <AboutmeScreen isMobile={isMobile} aboutMeRef={aboutMeRef} />
         <WorkScreen isMobile={isMobile} worksRef={worksRef} />
-        <StackScreen isMobile={isMobile} techStackRef={techStackRef} />
+        {/* <StackScreen isMobile={isMobile} techStackRef={techStackRef} /> */}
         <ContactScreen isMobile={isMobile} contactRef={contactRef}/>
       </Stack>
     </Box>
