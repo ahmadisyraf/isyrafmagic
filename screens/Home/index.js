@@ -11,7 +11,7 @@ const HomeScreen = ({ worksRef, aboutMeRef }) => {
   const { isMobile } = useBreakPoints();
 
   return (
-    <Box mx={isMobile ? 5 : 200} pb={20} position={"relative"}>
+    <Box mx={{ sm: 15, md: 50, lg: 150, xl: 200 }} pb={20} position={"relative"}>
       <Stack direction={"column"} spacing={0}>
         <HeaderScreen isMobile={isMobile} />
         <AboutmeScreen isMobile={isMobile} aboutMeRef={aboutMeRef} />
