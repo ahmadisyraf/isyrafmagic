@@ -5,6 +5,7 @@ import "@fontsource/raleway/400.css";
 import "@fontsource/open-sans/700.css";
 
 function MyApp({ Component, pageProps }) {
+
   return (
     <ChakraProvider>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />

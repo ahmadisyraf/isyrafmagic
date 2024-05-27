@@ -7,6 +7,7 @@ import {
   HStack,
   IconButton,
   Center,
+  Link,
 } from "@chakra-ui/react";
 import { EmailIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
@@ -29,7 +30,7 @@ const HeaderScreen = ({ isMobile }) => {
 
   const handleTwitter = () => {
     router.push("https://twitter.com/isyrafmagic");
-  }
+  };
 
   return (
     <Box
@@ -39,7 +40,7 @@ const HeaderScreen = ({ isMobile }) => {
       flexDirection={"row"}
       alignItems={"center"}
       justifyContent={"space-between"}
-      flexWrap={isMobile ? "wrap" : "nowrap"} // Wrap elements on smaller screens
+      flexWrap={isMobile ? "wrap" : "nowrap"}
     >
       {isMobile ? (
         <Box
@@ -74,7 +75,11 @@ const HeaderScreen = ({ isMobile }) => {
         </Heading>
         <Text fontSize="xl" textAlign="left" mt={5} color={"gray.600"}>
           I&apos;m a passionate Software Engineer based in Pahang, Malaysia.
-          Currently, I&apos;m focused on building web application at MyCrib.
+          Currently, I&apos;m focused on building web application for{" "}
+          <Link fontWeight={"medium"} href={"https://jomreview.app/"}>
+            www.jomreview.app
+          </Link>
+          .
         </Text>
         <Box
           display={"flex"}
@@ -106,7 +111,13 @@ const HeaderScreen = ({ isMobile }) => {
           >
             Contact me
           </Button>
-          <Button variant={"outline"} border={"1px solid #171923"} isDisabled={true}>Download resume</Button>
+          <Button
+            variant={"outline"}
+            border={"1px solid #171923"}
+            isDisabled={true}
+          >
+            Download resume
+          </Button>
         </HStack>
       </Box>
       {isMobile ? null : (

@@ -6,44 +6,43 @@ import {
   Skeleton,
   Badge,
   Stack,
-  Card,
-  Button,
-  CardHeader,
-  Icon,
+  Flex,
   HStack,
+  Grid,
 } from "@chakra-ui/react";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 const WorkScreen = ({ isMobile, worksRef }) => {
-  const router = useRouter();
   return (
     <Box ref={worksRef} py={20}>
       <Box w="100%">
         <Heading size={"xl"} mb={10} textAlign={"left"}>
-          Here are the projects I've been involved in
+          Here are the projects I&apos;ve been involved in
         </Heading>
       </Box>
-      <Stack direction={isMobile ? "column" : "row"} spacing={isMobile ? 8 : 4}>
+      <Grid
+        templateColumns={{
+          base: "1fr", // Mobile
+          md: "repeat(2, 1fr)", // Tablet
+          lg: "repeat(3, 1fr)", // Desktop
+        }}
+        gap={6}
+      >
         {works.map((work, index) => (
           <Link href={work.url} key={index}>
-            <Card
+            <Box
               variant="outline"
               position={"relative"}
-              maxW={400}
-              shadow={"md"}
-              borderRadius={15}
-              overflow={"hidden"}
               w={isMobile ? "100%" : "auto"}
-              aspectRatio={1}
+              aspectRatio={3 / 2}
             >
               <Image
                 src={work.path}
                 borderRadius={10}
+                alt="crib.my"
                 fallback={
                   <Skeleton
-                    height={"260px"}
+                    height={"100%"}
                     width={"100%"}
                     borderRadius={10}
                     opacity={1}
@@ -54,41 +53,37 @@ const WorkScreen = ({ isMobile, worksRef }) => {
                 width="100%"
               />
               <Box
-                position={"absolute"}
-                bg={"rgba(0, 0, 0, 0.7)"}
-                backdropFilter={"blur(0.5px)"}
-                h={"100%"}
-                color={"white"}
-                px={10}
+                py={5}
+                color={"black"}
                 display={"flex"}
                 flexDirection={"row"}
                 justifyContent={"center"}
                 alignItems={"center"}
+                position={"relative"}
               >
                 <Stack direction={"column"} spacing={"10px"}>
-                  <Icon
-                    fontSize={20}
-                    position={"absolute"}
-                    top={"10"}
-                    right={"10"}
+                  <HStack
+                    spacing={"10px"}
+                    display={"flex"}
+                    flexDirection={"row"}
+                    alignItems={"center"}
                   >
-                    <ExternalLinkIcon />
-                  </Icon>
-                  <HStack spacing={"10px"} display={"flex"} flexDirection={"row"} alignItems={"center"}>
                     <Heading size={"md"}>{work.title}</Heading>
-                    <Badge w={"fit-content"}>
-                      {work.category}
-                    </Badge>
                   </HStack>
-                  <Text size={"md"} fontWeight={"500"} color={"gray.200"}>
-                    {work.content}
+                  <Text size={"md"} fontWeight={"500"} color={"gray.500"}>
+                    <strong>{work.category}</strong> - {work.content}
                   </Text>
                 </Stack>
               </Box>
-            </Card>
+              <Flex wrap="wrap" gap={3}>
+                {work.tools.map((d, index) => (
+                  <Badge key={index}>{d}</Badge>
+                ))}
+              </Flex>
+            </Box>
           </Link>
         ))}
-      </Stack>
+      </Grid>
     </Box>
   );
 };
@@ -99,14 +94,57 @@ const works = [
     category: "Featured",
     title: "MyCrib",
     content: `
-      This project encompasses multiple tasks: proficiently handling
-      user accounts, establishing a logical user journey, crafting a
-      sleek and adaptable interface that guarantees seamless
-      performance across devices, and also focusing on enhancing
-      performance by upgrading all dependencies to their most
-      up-to-date versions for improved functionality and security.`,
+      MyCrib is a sophisticated web application designed for the real estate market, offering a comprehensive platform for buying and renting properties. It facilitates seamless property exploration for prospective buyers, providing advanced search filters, interactive maps, and a powerful calculator tool. Additionally, it simplifies property listing processes for agents, enhancing their efficiency and reach.`,
     url: "https://crib.my/",
-    tools: ["NextJS", "Material-UI", "Firebase", "Redux"],
+    tools: [
+      "NextJS",
+      "Pages router",
+      "Strapi",
+      "Material-UI",
+      "Firebase",
+      "Redux",
+      "Google Cloud Platform",
+    ],
+  },
+  {
+    path: "/loka.png",
+    category: "Featured",
+    title: "Loka",
+    content: `
+      Loka is a cutting-edge web application highlighting the diverse tourist attractions of Malaysia, with a particular focus on Langkawi. It offers users an immersive experience, showcasing interactive maps and curated information on activities and events in the Langkawi region. Through Loka, users can discover the essence of Langkawi's charm and plan memorable experiences with ease.`,
+    url: "https://loka.my/",
+    tools: [
+      "NextJS",
+      "App router",
+      "Mapbox",
+      "Google Map",
+      "Material-UI",
+      "Firebase",
+      "Redux",
+      "Google Cloud Platform",
+      "Typescript",
+    ],
+  },
+  {
+    path: "/jomreview.png",
+    category: "Personal",
+    title: "Jomreview",
+    content: `
+      Jomreview is a sophisticated web application tailored to discerning cafe enthusiasts, providing them with authentic reviews and personalized recommendations. Powered by an AI assistant named Rodong, Jomreview delivers unparalleled insights into the cafe scene, ensuring users find establishments that align perfectly with their tastes and preferences.`,
+    url: "https://jomreview.app/",
+    tools: [
+      "NextJS",
+      "App router",
+      "Mapbox",
+      "Gemini AI",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "Zustand",
+      "Primsa",
+      "Typescript",
+      "HonoJS",
+      "Tensorflow JS",
+    ],
   },
 ];
 
