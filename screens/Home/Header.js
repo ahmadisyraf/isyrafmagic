@@ -74,7 +74,7 @@ const HeaderScreen = ({ isMobile }) => {
         </Heading>
         <Text fontSize="xl" textAlign="left" mt={5} color={"gray.600"}>
           I&apos;m a passionate Software Engineer based in Pahang, Malaysia.
-          Currently, I&apos;m focused on building web application for{" "}
+          Currently, I&apos;m focused on building{" "}
           <Link fontWeight={"medium"} href={"https://jomreview.app/"}>
             jomreview.app
           </Link>
