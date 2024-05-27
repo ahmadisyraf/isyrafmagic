@@ -69,7 +69,7 @@ const HeaderScreen = ({ isMobile }) => {
           lineHeight={1.1}
           textAlign="left"
           // fontWeight={"800"}
-        >˝
+        >
           Hello, I&apos;m Ahmad Isyraf
         </Heading>
         <Text fontSize="xl" textAlign="left" mt={5} color={"gray.600"}>
