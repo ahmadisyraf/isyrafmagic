@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@chakra-ui/react";
 
-const useBreakPoints = () => {
+const useBreakpoint = () => {
   const [isMobile] = useMediaQuery("(max-width: 768px)", {
     ssr: true,
     fallback: true,
@@ -20,4 +20,4 @@ const useBreakPoints = () => {
   };
 };
 
-export default useBreakPoints;
+export default useBreakpoint;

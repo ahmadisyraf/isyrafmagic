@@ -4,10 +4,10 @@ import HeaderScreen from "./Header";
 import WorkScreen from "./Work";
 import AboutmeScreen from "./Aboutme";
 
-import useBreakPoints from "../../hooks/useBreakPoints";
+import useBreakPoint from "../../hooks/useBreakpoint";
 
 const HomeScreen = ({ worksRef, aboutMeRef }) => {
-  const { isMobile, isTablet } = useBreakPoints();
+  const { isMobile, isTablet } = useBreakPoint();
 
   return (
     <Box

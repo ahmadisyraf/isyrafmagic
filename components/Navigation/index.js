@@ -15,11 +15,11 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import useBreakPoints from "../../hooks/useBreakpoints";
+import useBreakpoint from "../../hooks/useBreakpoint";
 
 const Navigation = ({ aboutMeRef, worksRef, techStackRef, contactRef }) => {
   const router = useRouter();
-  const { isMobile } = useBreakPoints();
+  const { isMobile } = useBreakpoint();
   const [clickedButton, setClickedButton] = useState("");
 
   const handleEmail = () => {
