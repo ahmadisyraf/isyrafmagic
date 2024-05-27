@@ -9,7 +9,6 @@ import {
   Center,
   Link,
 } from "@chakra-ui/react";
-import { EmailIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import { AiFillLinkedin, AiFillGithub, AiOutlineTwitter } from "react-icons/ai";
 
@@ -70,14 +69,14 @@ const HeaderScreen = ({ isMobile }) => {
           lineHeight={1.1}
           textAlign="left"
           // fontWeight={"800"}
-        >
+        >˝
           Hello, I&apos;m Ahmad Isyraf
         </Heading>
         <Text fontSize="xl" textAlign="left" mt={5} color={"gray.600"}>
           I&apos;m a passionate Software Engineer based in Pahang, Malaysia.
           Currently, I&apos;m focused on building web application for{" "}
           <Link fontWeight={"medium"} href={"https://jomreview.app/"}>
-            www.jomreview.app
+            jomreview.app
           </Link>
           .
         </Text>
