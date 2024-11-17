@@ -6,13 +6,14 @@ import {
   Button,
   HStack,
   IconButton,
-  Center,
   Link,
 } from "@chakra-ui/react";
+
 import { useRouter } from "next/router";
+
 import { AiFillLinkedin, AiFillGithub, AiOutlineTwitter } from "react-icons/ai";
 
-const HeaderScreen = ({ isMobile }) => {
+export default function Header() {
   const router = useRouter();
 
   const handleEmail = () => {
@@ -32,45 +33,30 @@ const HeaderScreen = ({ isMobile }) => {
   };
 
   return (
-    <Box
-      py={20}
-      borderRadius={20}
-      display={"flex"}
-      flexDirection={"row"}
-      alignItems={"center"}
-      justifyContent={"space-between"}
-      flexWrap={isMobile ? "wrap" : "nowrap"}
-    >
-      {isMobile ? (
-        <Box
-          height={"100%"}
-          display={"flex"}
-          flexDirection={"row"}
-          alignItems={"center"}
-          mb={10}
-          position={"relative"}
-          width={"100%"}
-        >
-          <Image
-            borderRadius="full"
-            border={`4px solid black`}
-            boxSize={"100%"}
-            maxWidth={"150"}
-            bg={"gray.100"}
-            src="/isyraf-minum.png"
-            alt="isyrafmagic"
-          />
-        </Box>
-      ) : null}
-      <Box maxWidth={"550"}>
-        <Heading
-          as="h1"
-          size={"2xl"}
-          lineHeight={1.1}
-          textAlign="left"
-          // fontWeight={"800"}
-        >
-          Hello, I&apos;m Ahmad Isyraf
+    <Box py={20} borderRadius={20}>
+      <Box
+        height={"100%"}
+        display={"flex"}
+        flexDirection={"row"}
+        alignItems={"center"}
+        mb={5}
+        position={"relative"}
+        width={"100%"}
+      >
+        <Image
+          borderRadius="full"
+          border={`3px solid black`}
+          boxSize={"100%"}
+          maxWidth={"120"}
+          bg={"gray.100"}
+          src="/myprofile.jpg"
+          alt="isyrafmagic"
+        />
+      </Box>
+
+      <Box maxWidth={"4xl"}>
+        <Heading as="h1" size={"2xl"} lineHeight={1.1} textAlign="left">
+          Hello, I&apos;m Isyraf
         </Heading>
         <Text fontSize="xl" textAlign="left" mt={5} color={"gray.600"}>
           I&apos;m a passionate Software Engineer based in Pahang, Malaysia.
@@ -80,6 +66,8 @@ const HeaderScreen = ({ isMobile }) => {
           </Link>
           .
         </Text>
+
+        {/* Social Media Icons */}
         <Box
           display={"flex"}
           flexDirection={"row"}
@@ -100,6 +88,8 @@ const HeaderScreen = ({ isMobile }) => {
             </IconButton>
           </HStack>
         </Box>
+
+        {/* Action Buttons */}
         <HStack mt={5}>
           <Button
             variant={"solid"}
@@ -119,30 +109,6 @@ const HeaderScreen = ({ isMobile }) => {
           </Button>
         </HStack>
       </Box>
-      {isMobile ? null : (
-        <Box
-          height={"100%"}
-          display={"flex"}
-          flexDirection={"row"}
-          justifyContent={"center"}
-          alignItems={"center"}
-          mb={isMobile ? "5" : ""}
-          position={"relative"}
-          width={"100%"}
-        >
-          <Image
-            borderRadius="full"
-            border={`4px solid black`}
-            boxSize={"100%"}
-            maxWidth={"240px"}
-            bg={"gray.100"}
-            src="/isyraf-minum.png"
-            alt="isyrafmagic"
-          />
-        </Box>
-      )}
     </Box>
   );
-};
-
-export default HeaderScreen;
+}

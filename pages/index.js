@@ -1,21 +1,19 @@
-import HomeScreen from "../screens/Home";
-import Navigation from "../components/Navigation";
-import Footer from "../components/Footer";
-
-import { Box } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
 import { useRef } from "react";
 
-export default function HomePages() {
-  const aboutMeRef = useRef(null);
-  const worksRef = useRef(null);
+import Header from "../components/Header";
+import About from "../components/About";
+import Work from "../components/Work";
+import MainLayout from "../components/MainLayout";
 
+export default function HomePages() {
   return (
-    <Box position={"relative"}>
-      <Navigation aboutMeRef={aboutMeRef} worksRef={worksRef} />
-      <Box py={20}>
-        <HomeScreen aboutMeRef={aboutMeRef} worksRef={worksRef} />
-      </Box>
-      <Footer />
-    </Box>
+    <MainLayout>
+      <Stack direction="column" spacing={0}>
+        <Header />
+        <About />
+        <Work />
+      </Stack>
+    </MainLayout>
   );
 }

@@ -5,33 +5,25 @@ import { useRouter } from "next/router";
 const Footer = () => {
   const router = useRouter();
 
-  const handleGithub = () => {
-    router.push("https://github.com/ahmadisyraf");
-  };
-
-  const handleLinkedin = () => {
-    router.push("https://www.linkedin.com/in/ahmad-isyraf-350348b8/");
-  };
-
-  const handleTwitter = () => {
-    router.push("https://twitter.com/isyrafmagic");
-  };
-
   const socials = [
     {
       name: "Github",
       icon: <AiFillGithub fontSize={25} />,
-      handle: handleGithub,
+      handle: () => router.push("https://github.com/ahmadisyraf"),
+      ariaLabel: "Github",
     },
     {
       name: "Linkedin",
       icon: <AiFillLinkedin fontSize={25} />,
-      handle: handleLinkedin,
+      handle: () =>
+        router.push("https://www.linkedin.com/in/ahmad-isyraf-350348b8/"),
+      ariaLabel: "Linkedin",
     },
     {
       name: "Twitter",
       icon: <AiOutlineTwitter fontSize={25} />,
-      handle: handleTwitter,
+      handle: () => router.push("https://twitter.com/isyrafmagic"),
+      ariaLabel: "Twitter",
     },
   ];
 
@@ -50,14 +42,15 @@ const Footer = () => {
         © 2023 Ahmad Isyraf. All Rights Reserved
       </Text>
       <HStack spacing={"10px"}>
-        {socials.map((social, index) => (
+        {socials.map(({ icon, handle, ariaLabel }, index) => (
           <IconButton
             key={index}
             variant={"ghost"}
             color={"gray.600"}
-            onClick={social.handle}
+            onClick={handle}
+            aria-label={ariaLabel}
           >
-            {social.icon}
+            {icon}
           </IconButton>
         ))}
       </HStack>
