@@ -1,5 +1,4 @@
-import { Box, Stack } from "@chakra-ui/react";
-import { useRef } from "react";
+import { Stack } from "@chakra-ui/react";
 
 import Header from "../components/Header";
 import About from "../components/About";
