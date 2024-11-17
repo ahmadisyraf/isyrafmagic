@@ -31,7 +31,7 @@ export default function Work() {
                 <Text>{work.description}</Text>
                 <Stack spacing={2} direction={"row"} flexWrap={"wrap"} mt={2}>
                   {work.tools.map((tool, indexTool) => (
-                    <Badge index={indexTool} variant={"solid"} bg={"black"}>
+                    <Badge key={indexTool} variant={"solid"} bg={"black"}>
                       {tool}
                     </Badge>
                   ))}
